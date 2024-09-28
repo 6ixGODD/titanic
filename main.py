@@ -22,7 +22,6 @@ print(test_df.head())
 
 # Data preprocessing ----------------------------------------------------
 # Combine the train and test datasets
-
 # Drop the 'PassengerId', 'Name', 'Ticket', 'Cabin' columns
 train_df = train_df.drop(columns=['PassengerId', 'Name', 'Ticket', 'Cabin'])
 test_df = test_df.drop(columns=['PassengerId', 'Name', 'Ticket', 'Cabin'])
@@ -84,8 +83,6 @@ y_pred_val = model.predict(X_val)
 # Calculate the accuracy
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 
-# train_accuracy = (y_pred_train == y_train).mean()
-# val_accuracy = (y_pred_val == y_val).mean()
 train_accuracy = accuracy_score(y_train, y_pred_train)
 val_accuracy = accuracy_score(y_val, y_pred_val)
 
@@ -118,13 +115,6 @@ print(train_confusion_matrix)
 
 print('Validation confusion matrix:')
 print(val_confusion_matrix)
-
-# Save the predictions to a CSV file
-# ids = pd.read_csv(DATASET_ROOT / 'test.csv')['PassengerId']
-# output_df = pd.DataFrame({'PassengerId': ids, 'Survived': y_pred_test.astype(int)})
-# output_df.to_csv(ROOT / 'predictions.csv', index=False)
-# print('Predictions saved to predictions.csv')
-
 
 from sklearn.linear_model import LogisticRegression as SklearnLogisticRegression
 
